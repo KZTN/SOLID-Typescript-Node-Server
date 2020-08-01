@@ -1,8 +1,12 @@
 import { Router } from 'express';
+import multer from 'multer';
 import CreateUserService from '../services/CreateUserService';
 import ListUsersService from '../services/ListUsersService';
+import AuthMiddleware from '../middlewares/AuthMiddleware';
+import uploadConfig from '../config/upload';
 
 const usersRouter = Router();
+const upload = multer(uploadConfig);
 
 usersRouter.get('/', async (req, res) => {
   const listUsers = new ListUsersService();
@@ -21,7 +25,12 @@ usersRouter.post('/', async (req, res) => {
     return res.status(400).json({ error: error.message });
   }
 });
-usersRouter.patch('/avatar', async (req, res) => {
-  return res.json({ msg: 'ok' });
-});
+usersRouter.patch(
+  '/avatar',
+  AuthMiddleware,
+  upload.single('avatar'),
+  async (req, res) => {
+    return res.json({ msg: 'ok' });
+  },
+);
 export default usersRouter;

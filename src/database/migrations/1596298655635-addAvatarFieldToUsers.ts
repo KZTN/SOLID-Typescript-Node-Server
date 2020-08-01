@@ -1,5 +1,4 @@
 import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
-import { query } from 'express';
 
 export default class addAvatarFieldToUsers1596298655635
   implements MigrationInterface {
