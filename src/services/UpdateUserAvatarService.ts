@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import User from '../models/User';
 import uploadConfig from '../config/upload';
+import AppError from '../errors/AppError';
 
 interface IRequest {
   user_id: string;
@@ -13,7 +14,7 @@ class UpdateUserAvatar {
     const userRepository = getRepository(User);
     const user = await userRepository.findOne(user_id);
     if (!user) {
-      throw new Error('Not permited: User not authenticaded');
+      throw new AppError('Not permited: User not authenticaded', 401);
     }
     if (user.avatar) {
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);

@@ -3,6 +3,7 @@ import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import User from '../models/User';
 import authConfig from '../config/Auth';
+import AppError from '../errors/AppError';
 
 interface IRequest {
   email: string;
@@ -17,12 +18,12 @@ class CreateSessionService {
     const usersRepository = getRepository(User);
     const user = await usersRepository.findOne({ where: { email } });
     if (!user) {
-      throw new Error('Incorret email or password');
+      throw new AppError('Incorret email or password', 401);
     }
 
     const passwordhatched = await compare(password, user.password);
     if (!passwordhatched) {
-      throw new Error('Incorret email or password');
+      throw new AppError('Incorret email or password', 401);
     }
     const token = sign({}, authConfig.jwt.secret, {
       subject: user.id,
