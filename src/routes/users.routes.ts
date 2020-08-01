@@ -1,19 +1,21 @@
 import { Router } from 'express';
 import CreateUserService from '../services/CreateUserService';
+import ListUsersService from '../services/ListUsersService';
 
 const usersRouter = Router();
 
-/* usersRouter.get('/', async (req, res) => {
-  const appointmentsRepository = getCustomRepository(AppointmentRepository);
-  const appointments = await appointmentsRepository.find();
-  return res.json(appointments);
-}); */
+usersRouter.get('/', async (req, res) => {
+  const listUsers = new ListUsersService();
+  const users = await listUsers.execute();
+  return res.json(users);
+});
 
 usersRouter.post('/', async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const createUser = new CreateUserService();
     const user = await createUser.execute({ name, email, password });
+    delete user.password;
     return res.json(user);
   } catch (error) {
     return res.status(400).json({ error: error.message });
