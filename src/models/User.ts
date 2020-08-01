@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  AfterLoad,
 } from 'typeorm';
 
 @Entity('users')
@@ -22,6 +23,13 @@ class User {
 
   @Column()
   avatar: string;
+
+  protected avatar_url: string;
+
+  @AfterLoad()
+  createURLAvatar() {
+    this.avatar_url = `http://localhost:3333/files/${this.avatar}`;
+  }
 
   @CreateDateColumn()
   created_at: Date;
