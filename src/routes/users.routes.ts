@@ -21,5 +21,7 @@ usersRouter.post('/', async (req, res) => {
     return res.status(400).json({ error: error.message });
   }
 });
-
+usersRouter.patch('/avatar', async (req, res) => {
+  return res.json({ msg: 'ok' });
+});
 export default usersRouter;
