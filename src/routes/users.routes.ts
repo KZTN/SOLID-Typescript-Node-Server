@@ -1,9 +1,14 @@
 import { Router } from 'express';
 import multer from 'multer';
-import CreateUserService from '../services/CreateUserService';
-import ListUsersService from '../services/ListUsersService';
 import AuthMiddleware from '../middlewares/AuthMiddleware';
 import uploadConfig from '../config/upload';
+
+/*
+ * List of services
+ */
+import CreateUserService from '../services/CreateUserService';
+import ListUsersService from '../services/ListUsersService';
+import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
@@ -30,7 +35,17 @@ usersRouter.patch(
   AuthMiddleware,
   upload.single('avatar'),
   async (req, res) => {
-    return res.json({ msg: 'ok' });
+    try {
+      const updateUserAvatar = new UpdateUserAvatarService();
+      const user = await updateUserAvatar.execute({
+        user_id: req.user.id,
+        avatarFileName: req.file.filename,
+      });
+      delete user.password;
+      return res.json(user);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
   },
 );
 export default usersRouter;
