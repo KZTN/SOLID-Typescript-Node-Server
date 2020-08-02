@@ -8,6 +8,32 @@ Initial configuration of node backend using eslint, prettier, and tsconfig pre c
 - [Typescript](https://www.typescriptlang.org/): Program language
 - [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/): Design code patterns
 - [JWT](https://www.npmjs.com/package/jsonwebtoken): Service secutiry authentication
+### Installing the project🚀
+Cloning the project:
+
+```
+git clone https://github.com/KZTN/SOLID-Typescript-Node-Server.git
+```
+
+Go to the project folder:
+
+```
+cd SOLID-Typescript-Node-Server
+```
+
+Getting project dependencies:
+
+```bash
+yarn install
+```
+
+Run the project:
+
+```bash
+yarn start
+```
+
+Visit http://localhost:3333 with your browser to see the result. 🎉
 
 ## About SOLID:
 SOLID Principles is a coding standard that all developers should have a clear concept for developing software in a proper way to avoid a bad design. It was promoted by Robert C Martin and is used across the object-oriented design spectrum. When applied properly it makes your code more extendable, logical and easier to read.
