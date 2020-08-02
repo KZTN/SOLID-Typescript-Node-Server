@@ -1,7 +1,7 @@
 # Dummy_Typescript_Node_Server
 Initial configuration of node backend using eslint, prettier, and tsconfig pre configured
 
-# Tecnologies used:
+# Technologies used:
 - [Express](https://github.com/expressjs/express): HTTP API RESTFULL SERVER
 - [TypeORM](https://typeorm.io/#/): Database ORM to manipulate model data
 - [Jest](https://jestjs.io/): TDD platform
