@@ -7,6 +7,7 @@ Initial configuration of node backend using eslint, prettier, and tsconfig pre c
 - [Jest](https://jestjs.io/): TDD platform
 - [Typescript](https://www.typescriptlang.org/): Program language
 - [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/): Design code patterns
+- [JWT](https://www.npmjs.com/package/jsonwebtoken): Service secutiry authentication
 
 ## About SOLID:
 SOLID Principles is a coding standard that all developers should have a clear concept for developing software in a proper way to avoid a bad design. It was promoted by Robert C Martin and is used across the object-oriented design spectrum. When applied properly it makes your code more extendable, logical and easier to read.
