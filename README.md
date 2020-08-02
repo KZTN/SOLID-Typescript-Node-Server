@@ -2,9 +2,9 @@
 Initial configuration of node backend using eslint, prettier, and tsconfig pre configured
 
 # Tecnologies used:
-- (Express)[https://github.com/expressjs/express]: HTTP API RESTFULL SERVER
-- (TypeORM)[https://typeorm.io/#/]: Database ORM to manipulate model data
-- (Jest)[https://jestjs.io/]: TDD platform
+- [Express](https://github.com/expressjs/express): HTTP API RESTFULL SERVER
+- [TypeORM](https://typeorm.io/#/): Database ORM to manipulate model data
+- [Jest](https://jestjs.io/): TDD platform
 
 ## About SOLID:
 SOLID Principles is a coding standard that all developers should have a clear concept for developing software in a proper way to avoid a bad design. It was promoted by Robert C Martin and is used across the object-oriented design spectrum. When applied properly it makes your code more extendable, logical and easier to read.
