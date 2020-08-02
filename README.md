@@ -1,5 +1,5 @@
-# Dummy_Typescript_Node_Server
-Initial configuration of node backend using eslint, prettier, and tsconfig pre configured
+# SOLID-Typescript-Node-Server
+Initial configuration of node backend using eslint, prettier, and tsconfig pre configured using SOLID principles
 
 # Technologies used:
 - [Express](https://github.com/expressjs/express): HTTP API RESTFULL SERVER
